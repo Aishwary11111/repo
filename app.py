@@ -87,5 +87,7 @@ def preprocess():
         insert_document(document)
     return jsonify({"value":preds})
 
+ 
+#listening on 5001
 if __name__ == '__main__':
     app.run(host='localhost',port=5001)
