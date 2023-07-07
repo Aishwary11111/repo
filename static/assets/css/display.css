@@ -1,0 +1,33 @@
+.info {
+    background-color: rgba(0, 0, 0,0.5);
+    padding: 40px;
+    width: 380px;
+    border-radius: 15% 0% 15% 0%;
+    margin-top: 1%;
+    position: fixed;
+    top: -1%;
+    right: 5%;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.newinfoimage {
+    width: 100%;
+    height: 300px;
+    border-radius: 15% 0% 15% 0%;
+}
+
+.imagesize {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newinfodata {
+    margin-top: 40px;
+    background-color: rgb(255, 71, 71);
+    padding: 20px;
+    border-radius: 15% 0% 15% 0%;
+}

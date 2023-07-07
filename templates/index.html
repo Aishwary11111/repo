@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Dog Breed Identification</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<link rel="stylesheet" href="/static/assets/css/display.css">
+</head>
+
+<body class="is-preload">
+	<header id="header">
+		<h1>Dog Breed Identification</h1><br />
+	</header>
+	<div id="predoption">
+		<input type="radio" id="option1" name="option" value="option1" onchange="getSelectedOption()">
+		<label for="option1">Get info using photo</label><br>
+		<input type="radio" id="option2" name="option" value="option2" onchange="getSelectedOption()">
+		<label for="option2">Get info using camera</label><br><br>
+	</div>
+	<div id="predphoto" class="show">
+		<div id="showphoto">
+			<input type="file" id="imageFile" accept="image/*">
+			<button class="btn" onclick="preprocessImage()">Predict</button>
+		</div>
+	</div>
+	<div id="predvideo" class="show">
+		<div id="showvideo">
+			<video id="videoElement" width="300" height="225"></video>
+			<button id="startButton" onclick="startVideo()">Start Video</button>
+		</div>
+	</div>
+
+	<button type="button" id="refresh" onclick="refresh()">Refresh</button>
+	<script src="/static/assets/js/main.js"></script>
+	<script src="/static/assets/js/getinfo.js"></script>
+	<script src="/static/assets/js/videopred.js"></script>
+	<script src="/static/assets/js/display_data.js"></script>
+	<script>
+		function refresh(){
+			location.reload();
+		}
+		function getSelectedOption() {
+			const option1 = document.getElementById('option1');
+			const option2 = document.getElementById('option2');
+			const myElement = document.getElementById('showphoto');
+			const mysecElement = document.getElementById('showvideo');
+
+			if (option1.checked) {
+				myElement.style.display = 'block';
+				mysecElement.style.display = 'none';
+			} 
+			if(option2.checked){
+				myElement.style.display = 'none';
+				mysecElement.style.display = 'block';
+			}
+			if(option1.checked||option2.checked){
+				var rem=document.getElementById('edit');
+				if(rem){
+					rem.parentNode.removeChild(rem);
+				}
+			}
+		}
+		// function get_details(){
+		// 	detail=['boxer','bulldog','american-cocker-spaniel','german-shepherd-dog','labrador-retriever','maltese-dog','poodle','pug'];
+		// 	fetch('/details',{method:['GET']})
+		// 	.then(()=>{console.log("DETAILS SHOWN")})
+		// 	.catch((err)=>{console.log("ERROR SHOWING DETAILS",err)})
+		// }
+	</script>
+</body>
+
+</html>
